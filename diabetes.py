@@ -1,12 +1,17 @@
 # Import necessary libraries
+import pandas as pd
+import numpy as np 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
+
 # Load the dataset
 # Replace 'path_to_dataset' with the actual path to your dataset file
-dataset = pd.read_csv('path_to_dataset')
+# the path to a dataset can be the path from your local machine 
+# but to make the code more portable, you can use the relative path
+dataset = pd.read_csv('./diabetes_prediction_dataset.csv')
 
 # Split the dataset into features and target variable
 X = dataset.drop('diabetes', axis=1)

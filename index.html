@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Prediction Website</title>
+  <link rel="stylesheet" href="index.css"> <!-- Link to your CSS file -->
+  <script src="script.js" defer></script> <!-- Reference to the separate JavaScript file -->
+</head>
+<body>
+
+  
+  <header>
+    <h1>Diabetes Prediction</h1>
+    <p>Empowering health through prediction.</p>
+  </header>
+
+ 
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="#upload">Upload</a>
+    <a href="#prediction">Prediction</a>
+    <a href="#performance">Performance</a>
+  </nav>
+
+  
+  <section id="upload">
+    <h2>Upload Health Data</h2>
+    <form>
+     
+      <label for="file">Select File:</label>
+      <input type="file" id="file" name="file" accept=".csv" required>
+
+      <button type="submit">Upload</button>
+    </form>
+  </section>
+
+  
+  <section id="prediction">
+    <h2>Diabetes Prediction</h2>
+    <form id="predictionForm">
+    
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="hypertension">Hypertension:</label>
+      <input type="checkbox" id="hypertension" name="hypertension">
+
+      <label for="heartDisease">Heart Disease:</label>
+      <input type="checkbox" id="heartDisease" name="heartDisease">
+
+      <label for="smokingHistory">Smoking History:</label>
+      <input type="checkbox" id="smokingHistory" name="smokingHistory">
+
+      <label for="bmi">BMI:</label>
+      <input type="number" id="bmi" name="bmi" step="0.1" required>
+
+      <label for="hbA1c">HbA1c:</label>
+      <input type="number" id="hbA1c" name="hbA1c" step="0.1" required>
+
+      <label for="bloodGlucose">Blood Glucose:</label>
+      <input type="number" id="bloodGlucose" name="bloodGlucose" required>
+
+      <label for="diabetes">Diabetes:</label>
+      <input type="checkbox" id="diabetes" name="diabetes">
+
+      <button type="submit">Predict</button>
+    </form>
+  </section>
+
+ 
+  <section id="performance">
+    <h2>Performance Metrics</h2>
+    
+  </section>
+
+ 
+  <footer>
+    <p>&copy; 2024 Diabetes Prediction</p>
+  </footer>
+
+</body>
+</html>
