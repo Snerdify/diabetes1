@@ -30,6 +30,8 @@ def home():
 
 @app.route('/login', methods =[ 'POST' , 'GET'])
 
+
+
 def login():
     username = request.form.get('username')
     password = request.form.get('password')
@@ -49,6 +51,34 @@ def login():
     
     return render_template('login.html')
 
+
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        # Check if the username already exists
+        connection = sqlite3.connect('database.db')
+        cursor = connection.cursor()
+        cursor.execute('''SELECT * FROM users WHERE username = ?''', (username,))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            return jsonify({'status': 'error', 'message': 'Username already exists'})
+
+        # Hash the password
+        hashed_password = generate_password_hash(password)
+
+        # Insert the new user into the database
+        cursor.execute('''INSERT INTO users (username, password) VALUES (?, ?)''', (username, hashed_password))
+        connection.commit()
+        connection.close()
+
+        return jsonify({'status': 'success', 'message': 'User registered successfully'})
+
+    return render_template('register.html')
     
 
 @app.route('/predict', methods=['POST'])
